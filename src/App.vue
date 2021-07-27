@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HeadInfo from './components/HeadInfo.vue'
+import HeadInfo from './components/HeadInfo.vue'//
 import Header from './components/Header.vue'
 import Slider from './components/Slider.vue'
 import CardA from './components/CardA.vue'
