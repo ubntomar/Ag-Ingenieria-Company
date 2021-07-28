@@ -9,10 +9,11 @@
       </div>
       <div class="head_navbar">
         <ul>
-          <li><a href="#">> Productos</a></li>
-          <li><a href="#">> Servicios</a></li>
-          <li><a href="#">> Clientes</a></li>
-          <li><a href="#">> Contactos</a></li>
+          <li><router-link to="/products"> > Productos</router-link></li>
+          <li><router-link to="/services"> > Servicios</router-link></li>
+          <li><router-link to="/costumers"> > Clientes</router-link></li>
+          <li><router-link to="/contact"> > Contactanos</router-link></li>
+          
         </ul>
       </div>
       <div class="head_account">
@@ -37,5 +38,6 @@
 <script>
 export default {
   name: "Header",
+  
 };
 </script>
