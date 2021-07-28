@@ -24,7 +24,7 @@ export default {
   }),
   methods: {
     showP: () => {
-      // console.log("method excecuted!!!")
+       console.log("method excecuted!!!") 
     },
   },
   mounted() {
