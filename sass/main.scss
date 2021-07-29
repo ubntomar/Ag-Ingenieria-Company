@@ -1,0 +1,490 @@
+$arrow-color:#1863d4;
+$main-menu-items-color:white;
+$text-footer-item-size:0.8rem;
+$padding-footer-left-block:20px;
+$bk-header:#ee711e;
+$font-size:1rem;
+//MEDIA QUERY SETUP
+$sm: 400px;
+$md: 800px;
+$lg: 1200px;
+//  ../img/1.jpg
+@mixin rwd($propertyName, $defaultValue, $mediaQueries: ()) {
+    #{$propertyName}: #{$defaultValue};
+
+    @each $breakpoint,
+    $value in $mediaQueries {
+        @media (min-width: #{$breakpoint}) {
+            #{$propertyName}: #{$value};
+        }
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 300;
+    font-size: $font-size*1.0; 
+    box-sizing: border-box;
+}
+
+.head-info {
+    width: 100%;
+    display: flex;
+    @include rwd(flex-direction, column, ($sm: column, $md: row, $lg: row));
+    margin-right: 1px;
+    
+    & p {
+        margin: 5px;
+        padding-right: 5px;
+        white-space: nowrap;
+        width: min-content;
+        margin-left: auto;
+        &:last-child{
+            @include rwd(margin-left,auto,($sm: auto, $md: 0, $lg: 0));
+            
+        }
+        &:hover{
+            color: $bk-header;
+        }
+    }
+}
+
+.head {
+    height: 100px;
+    padding: 0.2rem;
+    background-color: $bk-header; //
+    color: $main-menu-items-color;
+    display: flex;
+    @include rwd(justify-content, space-between, ($sm: space-between, $md: space-around, $lg: space-between));
+    align-items: flex-end;
+    box-shadow: 0px 10px 20px rgba(43, 111, 212, 0.75);
+
+    &_logo {
+        display: flex;
+        align-items: center;
+        color: white;
+        margin-left: 10px;
+
+        & div p {
+            font-family: 'Work Sans', sans-serif;     
+            font-size: $font-size*2;
+            opacity: 85%; 
+            @include rwd(display, block, ($sm: block, $md: block, $lg: block));
+            //display: none;
+        }
+
+        & img {
+            height: 40px;
+            width: 40px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 21px;
+            &:hover{
+                transition: all .3s;
+                transform: scale(103%,103%);
+            }
+            &:active{
+                transition: all 0.2s;
+                transform: scale(110%,110%);
+            }
+        }
+
+        & div {
+            margin-left: 10px;
+
+            & h2 {
+                padding: 4px;
+                margin: 0;
+                text-shadow: $main-menu-items-color 1px 0 1px;
+
+                &::first-letter {
+                    color: $arrow-color;
+                }
+            }
+
+            & p {
+                font-style: italic;
+                font-weight: bold;
+                padding: 5px;
+                margin: 0px;
+
+                &::first-letter {
+                    color: $arrow-color;
+
+                }
+            }
+        }
+    }
+
+
+    &_navbar ul {
+        //text-transform: uppercase;
+        font-weight: 900; 
+        font-size: $font-size*1.2;
+        @include rwd(display, none, ($sm: none, $md: flex, $lg: flex));
+        margin-right: 50px;
+
+        & li {
+            padding: 5px 10px;
+            list-style: none;
+
+            &::first-letter {
+                color: $arrow-color;
+            }
+
+            &:hover {
+                position: relative;
+                transition: all 0.2s;
+                transform: translateY(10);
+            }
+
+            &:active {
+                box-shadow: 0 .5rem 1rem rgba(165, 38, 21, 0.75);
+            }
+
+            & a{
+                text-decoration: none;
+                color:white;
+            }
+        }
+    }
+
+    &_account {
+        display: flex;
+        margin-bottom: auto;
+        font-size: $font-size*0.9;
+        opacity: 80%;
+
+        & img {
+            @include rwd(display, none, ($sm: none, $md: block, $lg: block));
+            height: 30px;
+            width: 30px;
+            padding: 1px;
+            background-size: cover;
+            background-position: center;
+            margin-top: $font-size*0.9;
+        }
+    }
+
+    &_small-menu {
+        //display: none;
+        @include rwd(display, block, ($sm: block, $md: none, $lg: none));
+        //padding: 7px;
+        margin-bottom: 17px;
+        &:hover{
+            transition: all .3s;
+            transform: scale(103%,103%);
+        }
+        &:active{
+            transition: all 0.2s;
+            transform: scale(110%,110%);
+        }
+        & div {
+            width: 35px;
+            height: 5px;
+            background-color: rgb(233, 222, 222);
+            margin: 6px;
+
+        }
+    }
+
+
+}
+.body-small-menu{ 
+    @include rwd(display, none, ($sm: none, $md: none, $lg: none));
+    margin: 20px 6px 0px 8px; 
+    font-size: $font-size*0.8;
+    & p:first-child{
+        background-color: $bk-header;
+        color: white;
+    }
+    & p{
+        padding: 10px; 
+        & a{
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
+.main-container {
+    margin-top: 50px;
+    
+    &-slider {
+        & img{
+            width: 100%;
+            height: 250px;
+            background-repeat: no-repeat;
+            object-fit: cover;
+            //background-position: center;
+            filter: grayscale(50%);
+            margin: 0 auto;
+            
+        }
+        position: relative;
+        height: 100%;
+
+        &_text {
+            font-size: 1.5rem;
+            width: min-content;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 75%;
+            
+            & p {
+                border-radius: 5px;
+                background-color: rgb(0, 0, 0);
+                font-family: 'Libre Franklin', sans-serif;
+                width: min-content;
+                white-space: nowrap;
+                //margin: 1px 0;
+                margin: 5px auto;
+                padding: 6px;
+                color: rgb(255, 253, 253);
+                border: 1px solid;
+
+            }
+
+            & :first-child {
+                //color: #c5b2a9;    
+                //transform: translateX(-70%);
+                border-color: white;
+            }
+        }
+    }
+}
+
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+
+    & h1 {
+        font-size: 2.0rem;
+        margin-bottom: 90px;
+        padding-top: 50px;
+        text-align: center;
+        font-weight: 300;
+    }
+
+    &-section {
+        display: flex;
+        justify-content: center;
+        text-align: justify;
+        @include rwd(flex-direction, column, ($sm: column, $md: row, $lg: row));
+
+        &_card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5px;
+            padding: 5px;
+            @include rwd(width, auto, ($sm: auto, $md: auto, $lg: 250px));
+
+            &__logo {
+                & img {
+                    object-fit: cover;
+                    border-radius: 50%;
+                    margin-bottom: 30px;
+                }
+
+                border-bottom: solid 3px;
+            }
+
+            &__logo2 {
+                & img {
+                    height: 150px;
+                    max-width: 150px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    margin-bottom: 30px;
+                }
+
+                border-bottom: solid 3px;
+            }
+
+            &__footer {
+                margin-top: 90px;
+                text-align: center;
+
+                & .button {
+                    padding-top: 15px;
+                    height: 30px;
+                    width: 230px;
+                    background-color: rgba(43, 111, 212, 0.90);
+                    border-radius: 3px;
+
+                    & a {
+                        text-decoration: none;
+                        color: seashell;
+                    }
+
+                    &:hover {
+                        background-color: rgba(43, 111, 212, 0.80);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.container-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-image: url('../img/microsoldering.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(80%);
+
+    &-content {
+        margin: 0 auto;
+        padding: 10px;
+
+        //height: 290px;
+        background-color: black;
+        opacity: 0.8;
+        color: white;
+
+        &_head {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        &_body {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    }
+
+}
+
+.footer {
+    background-color: #292929;
+    color: white;
+    //padding: 30px;
+    @include rwd(padding, 0%, ($sm: 0px, $md: 30px, $lg: 30px));
+    @include rwd(text-align, left, ($sm: left, $md: left, $lg: left));
+
+    .footer-main {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid rgb(68, 64, 64);
+        padding-bottom: 30px;
+
+        &-col1 {
+            @include rwd(width, 100%, ($sm: 100%, $md: 30%, $lg: 30%));
+
+            &_links {
+                display: flex;
+                // @include rwd(flex-direction, column, ($sm: column, $md: row, $lg: row));
+                justify-content: space-between;
+
+                &__item {
+                    padding: 0 $padding-footer-left-block;
+
+                    & ul {
+                        @include rwd(font-size, 0.7rem, ($sm: 0.8rem, $md: 1rem, $lg: $text-footer-item-size));
+
+                        opacity: 0.5;
+                        padding-left: 0;
+
+                        & li {
+                            list-style: none;
+                            padding: 2px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        &-col2 {
+            width: 30%;
+            @include rwd(display, none, ($sm: none, $md: none, $lg: block));
+
+            &_news {
+                width: 75%;
+                margin-left: auto;
+
+                & p {
+                    opacity: 0.5;
+                    font-size: $text-footer-item-size;
+                }
+
+                &__button {
+                    margin: 0;
+                    width: 100%;
+                    padding: 10px 0;
+                    background-color: $arrow-color;
+                    text-align: center;
+
+                    & a {
+                        font-size: $text-footer-item-size;
+                        font-weight: 900;
+                        color: white;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            &_app img {
+
+                max-width: 80px;
+            }
+        }
+    }
+
+    .footer-secondary {
+        display: flex;
+        @include rwd(justify-content, 'between', ($sm: 'space-between', $md: 'space-around', $lg: 'space-around'));
+        padding-bottom: 30px;
+        padding-top: 30px;
+
+        //padding-left: 0px;
+        &-col1 {
+            width: 90%;
+            @include rwd(width, '100%', ($sm: '100%', $md: '50%', $lg: '30%'));
+
+            &_links {
+                display: flex;
+
+                &__brand {
+                    width: 100%;
+                    display: flex;
+                    ///justify-content: space-between;
+                    @include rwd(justify-content, 'space-between', ($sm: 'space-between', $md: 'start', $lg: 'start'));
+
+                    & .lf img {
+                        width: 130px;
+                        padding-left: $padding-footer-left-block;
+                    }
+
+                    & .rg {
+                        padding-right: 20px;
+                    }
+                }
+            }
+
+        }
+
+        &-col2 {
+            @include rwd(display, none, ($sm: none, $md: block, $lg: block));
+            width: 30%;
+
+            &_app {
+                width: min-content;
+                margin-left: auto;
+                display: flex;
+
+                & img {
+                    width: 100px;
+                }
+            }
+        }
+    }
+
+}
