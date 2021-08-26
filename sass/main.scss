@@ -8,6 +8,7 @@ $font-size:1rem;
 $sm: 400px;
 $md: 800px;
 $lg: 1200px;
+
 //  ../img/1.jpg
 @mixin rwd($propertyName, $defaultValue, $mediaQueries: ()) {
     #{$propertyName}: #{$defaultValue};
@@ -23,9 +24,9 @@ $lg: 1200px;
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: $font-size*1.0; 
+    font-size: $font-size*1.0;
     box-sizing: border-box;
 }
 
@@ -34,18 +35,20 @@ body {
     display: flex;
     @include rwd(flex-direction, column, ($sm: column, $md: row, $lg: row));
     margin-right: 1px;
-    
+
     & p {
         margin: 5px;
         padding-right: 5px;
         white-space: nowrap;
         width: min-content;
         margin-left: auto;
-        &:last-child{
-            @include rwd(margin-left,auto,($sm: auto, $md: 0, $lg: 0));
-            
+
+        &:last-child {
+            @include rwd(margin-left, auto, ($sm: auto, $md: 0, $lg: 0));
+
         }
-        &:hover{
+
+        &:hover {
             color: $bk-header;
         }
     }
@@ -58,57 +61,45 @@ body {
     color: $main-menu-items-color;
     display: flex;
     @include rwd(justify-content, space-between, ($sm: space-between, $md: space-around, $lg: space-between));
-    align-items: flex-end;
+    align-items: center;
     box-shadow: 0px 10px 20px rgba(43, 111, 212, 0.75);
 
     &_logo {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         color: white;
         margin-left: 10px;
 
-        & div p {
-            font-family: 'Work Sans', sans-serif;     
-            font-size: $font-size*2;
-            opacity: 85%; 
-            @include rwd(display, block, ($sm: block, $md: block, $lg: block));
-            //display: none;
-        }
-
-        & img {
+        & div img {
             height: 40px;
             width: 40px;
             background-size: cover;
             background-position: center;
-            margin-bottom: 21px;
-            &:hover{
+            padding: 3px;
+
+            &:hover {
                 transition: all .3s;
-                transform: scale(103%,103%);
+                transform: scale(103%, 103%);
             }
-            &:active{
+
+            &:active {
                 transition: all 0.2s;
-                transform: scale(110%,110%);
+                transform: scale(110%, 110%);
             }
         }
 
         & div {
             margin-left: 10px;
 
-            & h2 {
-                padding: 4px;
-                margin: 0;
-                text-shadow: $main-menu-items-color 1px 0 1px;
-
-                &::first-letter {
-                    color: $arrow-color;
-                }
-            }
-
             & p {
+                font-family: 'Work Sans', sans-serif;
+                font-size: $font-size*2;
                 font-style: italic;
                 font-weight: bold;
-                padding: 5px;
                 margin: 0px;
+                padding: 0px;
+                @include rwd(display, block, ($sm: block, $md: block, $lg: block));
+                opacity: 85%;
 
                 &::first-letter {
                     color: $arrow-color;
@@ -119,37 +110,41 @@ body {
     }
 
 
-    &_navbar ul {
-        //text-transform: uppercase;
-        font-weight: 900; 
-        font-size: $font-size*1.2;
-        @include rwd(display, none, ($sm: none, $md: flex, $lg: flex));
-        margin-right: 50px;
+    &_navbar {
+        height:50px; 
+        & ul {
+            //text-transform: uppercase;
+            font-weight: 900;
+            font-size: $font-size*1.3;
+            @include rwd(display, none, ($sm: none, $md: flex, $lg: flex));
+            //margin-right: 50px;
 
-        & li {
-            padding: 5px 10px;
-            list-style: none;
+            & li {
+                padding: 0px 10px;
+                list-style: none;
 
-            &::first-letter {
-                color: $arrow-color;
-            }
+                &::first-letter {
+                    color: $arrow-color;
+                }
 
-            &:hover {
-                position: relative;
-                transition: all 0.2s;
-                transform: translateY(10);
-            }
+                &:hover {
+                    position: relative;
+                    transition: all 0.2s;
+                    transform: translateY(10);
+                }
 
-            &:active {
-                box-shadow: 0 .5rem 1rem rgba(165, 38, 21, 0.75);
-            }
+                &:active {
+                    box-shadow: 0 .5rem 1rem rgba(165, 38, 21, 0.75);
+                }
 
-            & a{
-                text-decoration: none;
-                color:white;
+                & a {
+                    text-decoration: none;
+                    color: white;
+                }
             }
         }
     }
+
 
     &_account {
         display: flex;
@@ -173,14 +168,17 @@ body {
         @include rwd(display, block, ($sm: block, $md: none, $lg: none));
         //padding: 7px;
         margin-bottom: 17px;
-        &:hover{
+
+        &:hover {
             transition: all .3s;
-            transform: scale(103%,103%);
+            transform: scale(103%, 103%);
         }
-        &:active{
+
+        &:active {
             transition: all 0.2s;
-            transform: scale(110%,110%);
+            transform: scale(110%, 110%);
         }
+
         & div {
             width: 35px;
             height: 5px;
@@ -192,27 +190,32 @@ body {
 
 
 }
-.body-small-menu{ 
+
+.body-small-menu {
     @include rwd(display, none, ($sm: none, $md: none, $lg: none));
-    margin: 20px 6px 0px 8px; 
+    margin: 20px 6px 0px 8px;
     font-size: $font-size*0.8;
-    & p:first-child{
+
+    & p:first-child {
         background-color: $bk-header;
         color: white;
     }
-    & p{
-        padding: 10px; 
-        & a{
+
+    & p {
+        padding: 10px;
+
+        & a {
             color: inherit;
             text-decoration: none;
         }
     }
 }
+
 .main-container {
     margin-top: 50px;
-    
+
     &-slider {
-        & img{
+        & img {
             width: 100%;
             height: 250px;
             background-repeat: no-repeat;
@@ -220,32 +223,33 @@ body {
             //background-position: center;
             filter: grayscale(50%);
             margin: 0 auto;
-            
+
         }
+
         position: relative;
         height: 100%;
 
         &_text {
-            font-size: 1.5rem;
+            @include rwd(font-size, 1rem, ($sm: 1rem, $md: 1.4rem, $lg: 1.8rem));
+
             width: min-content;
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            opacity: 75%;
-            
+            opacity: 85%;
+
             & p {
                 border-radius: 5px;
-                background-color: rgb(0, 0, 0);
+                background-color: $bk-header;
                 font-family: 'Libre Franklin', sans-serif;
+                font-style: italic;
                 width: min-content;
                 white-space: nowrap;
-                //margin: 1px 0;
                 margin: 5px auto;
-                padding: 6px;
+                padding: 6px 25px;
                 color: rgb(255, 253, 253);
                 border: 1px solid;
-
             }
 
             & :first-child {

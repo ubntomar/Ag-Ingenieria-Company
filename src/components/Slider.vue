@@ -3,9 +3,9 @@
     <div class="main-container-slider">
       <img src="../../public/img/1.jpg" alt="" />
       <div class="main-container-slider_text">
-        <p>Internet</p>
-        <p>&</p>
-        <p>Services</p>
+        <p v-if="p1">{{p1}}</p>
+        <p v-if="p2">{{p2}}</p>
+        <p v-if="p3">{{p3}}</p>
       </div>
     </div>
   </div>

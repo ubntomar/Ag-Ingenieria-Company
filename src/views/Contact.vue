@@ -2,7 +2,7 @@
   <div class="home">
     <HeadInfo msg="Welcome to Your Vue.js App"/>
     <Header msg="Welcome to Your Vue.js App"/>
-    <Slider p1="Contactanos" p2="" p3=""/>
+    <Slider p1="Contáctanos y has parte de una gran comunidad"  p2="" p3=""/>
     <CardA msg="Welcome to Your Vue.js App"/>
     <SliderA msg="Welcome to Your Vue.js App"/>
     <CardB msg="Welcome to Your Vue.js App"/>
